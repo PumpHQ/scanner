@@ -178,7 +178,8 @@
         <a class="btn primary" href="pumphq-scanner.zip" download>⬇ Download</a>
         <a class="btn ghost" href="https://whop.com/t-1fcf/products/pump-hq-scanner/">Get a Scanner key</a>
       </div>
-      <p class="fine">v2.0.0 · Read-only: it never touches your wallet</p>
+      <p class="fine">v2.0.1 · Read-only: it never touches your wallet</p>
+      <p class="fine">SHA-256 of pumphq-scanner-2.0.1.zip: <code style="user-select:all;word-break:break-all">161ebdde4f1a9de4733803e64025f40aef74e8c8d1e10fcafaefe254cafbf143</code></p>
     </div>
     <div class="hero-art"><div class="mascot"><img src="assets/mascot.png" alt="The Pump HQ chef"></div></div>
   </header>
@@ -242,6 +243,8 @@
     <div class="faq">
       <details><summary>Is it safe?</summary><p>It's read-only. It never reads your wallet, never signs anything and never trades. Since version 2.0.0 the extension holds no logic of its own: it sends the coin addresses on your screen to the Pump HQ server and draws the colours that come back. The <a href="privacy.html">privacy policy</a> lists exactly what it sends and where.</p></details>
       <details><summary>Why do I need Developer mode?</summary><p>The Scanner installs from a file instead of the Chrome Web Store, and browsers only allow that with Developer mode on. Your browser may remind you about it now and then. Leave it on, or the extension turns off.</p></details>
+      <details><summary>How do I check the file I downloaded is the real one?</summary><p>Every release has one fingerprint. Right-click the zip in PowerShell with <code>Get-FileHash pumphq-scanner.zip</code> (Mac/Linux: <code>shasum -a 256 pumphq-scanner.zip</code>) and compare it with the SHA-256 shown above the download button. If it doesn't match, you didn't get it from here: delete it.</p></details>
+      <details><summary>What does it send, exactly?</summary><p>Three things, all to the Pump HQ server: your Scanner key, the addresses of the coins on your Pulse screen (that's how it gets the colours back), and a random install ID made on your computer so one key can't be shared. Prices and candles for the coin panel come from DexScreener and GeckoTerminal. Nothing else leaves your browser: no wallet, no balances, no browsing. The <a href="privacy.html">privacy policy</a> has the full list.</p></details>
       <details><summary>How do updates work?</summary><p>The popup tells you when there's a new version. Download it again, extract it over the same folder, and hit the reload arrow on the extensions page. Your settings and key stay put.</p></details>
       <details><summary>How do I get a Scanner key?</summary><p>Scanner keys are a weekly or monthly subscription on Whop, and everything in the Scanner runs on one. Going monthly? Pump HQ members skip the setup fee with the code from the group.</p></details>
       <details><summary>Does a GREEN trap check mean it's safe to buy?</summary><p>No. It means no obvious traps were found. Most pump.fun coins still die, so size small and never trade money you can't lose. Nothing here is financial advice.</p></details>
