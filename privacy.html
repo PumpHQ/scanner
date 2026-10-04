@@ -21,7 +21,7 @@
 <body>
 <main>
   <h1>Pump HQ Scanner privacy policy</h1>
-  <p class="muted">Last updated: October 2, 2026</p>
+  <p class="muted">Last updated: October 4, 2026</p>
   <p>Pump HQ Scanner is a browser extension that adds labels, a coin panel and launch alerts to
      axiom.trade and pump.fun. This policy explains what it stores and what it sends.</p>
 
@@ -34,13 +34,18 @@
     <h2>What the extension sends</h2>
     <ul>
       <li><b>Coin addresses</b> of the coins on your screen go to public market-data services (DexScreener,
-          GeckoTerminal, pump.fun) to look up prices, candles and the dev's launch history.</li>
+          GeckoTerminal, pump.fun) to look up prices and candles for the coin panel.</li>
       <li><b>A live feed of new pump.fun coins</b> comes from PumpPortal's public feed, and Google's public
           daily trending searches come from trends.google.com. Nothing about you is sent to either.</li>
-      <li><b>If you add a Scanner key:</b> your key and the address of a coin you check go to the Pump HQ
-          scanner server, to confirm your subscription, run the trap check and fetch the "really good devs" list. The server keeps a count of checks per key per day so it can enforce the daily limit, checks
-          the key with Whop (where you bought it), and remembers each coin's result for a few minutes so
-          repeat checks are fast. Your IP address is only used to rate-limit requests and is never saved.</li>
+      <li><b>If you add a Scanner key:</b> your key, the addresses of the coins on your Pulse screen, and the
+          address of a coin you check go to the Pump HQ scanner server. The server works out the row colours
+          and badges for those coins (the dev's launch record, copycats, LARPs, reused X links, hot
+          narratives) from public market data, confirms your subscription, runs trap checks and serves the
+          "really good devs" and hot-narratives lists. It keeps a count of trap checks per key per day so it
+          can enforce the daily limit, checks the key with Whop (where you bought it), remembers each coin's
+          result for a few minutes so repeat requests are fast, and counts the install IDs (below) that use
+          a key each day so one key can't be shared by many people. Your IP address is only used to
+          rate-limit requests and is never saved.</li>
       <li><b>An anonymous install count:</b> once a day, the extension sends the Pump HQ scanner server a random
           ID made on your computer (it isn't linked to you, your wallet or your Scanner key), its version
           number, and whether a Scanner key is active. That's all it sends. The server only keeps a short
