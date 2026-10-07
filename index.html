@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pump HQ Scanner</title>
-<meta name="description" content="Labels every coin on Axiom's Pulse by its dev's record: rug devs, farmers, copycats and OGs. Read-only.">
+<meta name="description" content="Labels every coin on Axiom's Pulse and Terminal's Trenches by its dev's record: rug devs, farmers, copycats and OGs. Read-only.">
 <meta property="og:title" content="Pump HQ Scanner">
-<meta property="og:description" content="See who you're dealing with before you buy. Labels every coin on Axiom's Pulse by its dev's record.">
+<meta property="og:description" content="See who you're dealing with before you buy. Labels every coin on Axiom's Pulse and Terminal's Trenches by its dev's record.">
 <meta property="og:image" content="https://pumphq.github.io/scanner/assets/og.png">
 <meta property="og:url" content="https://pumphq.github.io/scanner/">
 <meta name="twitter:card" content="summary_large_image">
@@ -170,24 +170,24 @@
 
   <header class="hero" id="top">
     <div>
-      <span class="pill"><i></i> For Axiom Pulse · Brave &amp; Chrome</span>
+      <span class="pill"><i></i> For Axiom Pulse &amp; Terminal Trenches · Brave &amp; Chrome</span>
       <h1>See who you're dealing with <span class="glow">before you buy.</span></h1>
-      <p class="lead">Pump HQ Scanner labels every coin on Pulse by its dev's record: serial ruggers, farmers,
+      <p class="lead">Pump HQ Scanner labels every coin on Axiom's Pulse and Terminal's Trenches by its dev's record: serial ruggers, farmers,
          copycats and OGs, the moment it shows up.</p>
       <div class="cta">
         <a class="btn primary" href="pumphq-scanner.zip" download>⬇ Download</a>
         <a class="btn ghost" href="https://whop.com/t-1fcf/products/pump-hq-scanner/">Get a Scanner key</a>
       </div>
-      <p class="fine">v2.0.1 · Read-only: it never touches your wallet</p>
-      <p class="fine">SHA-256 of pumphq-scanner-2.0.1.zip: <code style="user-select:all;word-break:break-all">161ebdde4f1a9de4733803e64025f40aef74e8c8d1e10fcafaefe254cafbf143</code></p>
+      <p class="fine">v2.1.0 · Read-only: it never touches your wallet</p>
+      <p class="fine">SHA-256 of pumphq-scanner-2.1.0.zip: <code style="user-select:all;word-break:break-all">35b5bcbf8bfe6c5a5cd9564272f1f569327f563affd692ae995b9f4536472367</code></p>
     </div>
     <div class="hero-art"><div class="mascot"><img src="assets/mascot.png" alt="The Pump HQ chef"></div></div>
   </header>
 
   <section id="features">
     <div class="kicker">WHAT YOU GET</div>
-    <h2>Every row on Pulse, labeled</h2>
-    <p class="sub">Colors and tags show up right on Axiom's own rows, under the stats you already watch.</p>
+    <h2>Every row on Pulse and Trenches, labeled</h2>
+    <p class="sub">Colors and tags show up right on Axiom's and Terminal's own rows, under the stats you already watch.</p>
     <div class="grid">
       <div class="card"><span class="tag t-red"><i></i>Rug dev</span><h3>Serial ruggers</h3><p>Devs whose coins mostly died get flagged, with the count.</p></div>
       <div class="card"><span class="tag t-amber"><i></i>Farming</span><h3>Farming devs</h3><p>Launching dud after dud today? You'll see it before you ape.</p></div>
@@ -212,7 +212,7 @@
 
   <section id="screens">
     <div class="kicker">SEE IT IN ACTION</div>
-    <h2>Right inside Axiom</h2>
+    <h2>Right inside Axiom and Terminal</h2>
     <p class="sub">No new tab, no copy-pasting contract addresses.</p>
     <div class="shots">
       <figure class="shot"><img src="assets/pulse.webp" alt="Pulse rows labeled by dev record" loading="lazy"><figcaption><b>Pulse, labeled</b>Rug devs, copies, OGs and dev history on every row.</figcaption></figure>
@@ -232,7 +232,7 @@
       <li>Open <code>brave://extensions</code> (or <code>chrome://extensions</code>) and turn on <b>Developer mode</b> at the top right.</li>
       <li>Click <b>Load unpacked</b> and pick that folder.</li>
       <li>Click the puzzle piece and pin <b>Pump HQ Scanner</b>. Open it, paste your Scanner key (Whop → Pump HQ Scanner → Software) and hit <b>Activate</b>. Nothing turns on until you do.</li>
-      <li>Refresh Axiom's Pulse page. That's it.</li>
+      <li>Refresh Axiom's Pulse or Terminal's Trenches page (terminal.pump.fun or trade.padre.gg). That's it.</li>
     </ol>
     <p class="note">Updates: when the popup says a new version is out, download it again, extract it over the same folder, and click the reload arrow on the extensions page.</p>
   </section>
@@ -244,7 +244,7 @@
       <details><summary>Is it safe?</summary><p>It's read-only. It never reads your wallet, never signs anything and never trades. Since version 2.0.0 the extension holds no logic of its own: it sends the coin addresses on your screen to the Pump HQ server and draws the colours that come back. The <a href="privacy.html">privacy policy</a> lists exactly what it sends and where.</p></details>
       <details><summary>Why do I need Developer mode?</summary><p>The Scanner installs from a file instead of the Chrome Web Store, and browsers only allow that with Developer mode on. Your browser may remind you about it now and then. Leave it on, or the extension turns off.</p></details>
       <details><summary>How do I check the file I downloaded is the real one?</summary><p>Every release has one fingerprint. Right-click the zip in PowerShell with <code>Get-FileHash pumphq-scanner.zip</code> (Mac/Linux: <code>shasum -a 256 pumphq-scanner.zip</code>) and compare it with the SHA-256 shown above the download button. If it doesn't match, you didn't get it from here: delete it.</p></details>
-      <details><summary>What does it send, exactly?</summary><p>Three things, all to the Pump HQ server: your Scanner key, the addresses of the coins on your Pulse screen (that's how it gets the colours back), and a random install ID made on your computer so one key can't be shared. Prices and candles for the coin panel come from DexScreener and GeckoTerminal. Nothing else leaves your browser: no wallet, no balances, no browsing. The <a href="privacy.html">privacy policy</a> has the full list.</p></details>
+      <details><summary>What does it send, exactly?</summary><p>Three things, all to the Pump HQ server: your Scanner key, the addresses of the coins on your Pulse or Trenches screen (that's how it gets the colours back), and a random install ID made on your computer so one key can't be shared. Prices and candles for the coin panel come from DexScreener and GeckoTerminal. Nothing else leaves your browser: no wallet, no balances, no browsing. The <a href="privacy.html">privacy policy</a> has the full list.</p></details>
       <details><summary>How do updates work?</summary><p>The popup tells you when there's a new version. Download it again, extract it over the same folder, and hit the reload arrow on the extensions page. Your settings and key stay put.</p></details>
       <details><summary>How do I get a Scanner key?</summary><p>Scanner keys are a weekly or monthly subscription on Whop, and everything in the Scanner runs on one. Going monthly? Pump HQ members skip the setup fee with the code from the group.</p></details>
       <details><summary>Does a GREEN trap check mean it's safe to buy?</summary><p>No. It means no obvious traps were found. Most pump.fun coins still die, so size small and never trade money you can't lose. Nothing here is financial advice.</p></details>
@@ -259,7 +259,7 @@
 
   <footer>
     <a class="brand" href="#top"><img src="assets/mascot.png" alt=""><span>PUMP <b>HQ</b></span></a>
-    <div>Not made by or connected to Axiom. Nothing here is financial advice.</div>
+    <div>Not made by or connected to Axiom, Terminal or pump.fun. Nothing here is financial advice.</div>
     <div><a href="privacy.html">Privacy</a> · © 2026 Pump HQ</div>
   </footer>
 </div>
