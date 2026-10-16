@@ -21,7 +21,7 @@
 <body>
 <main>
   <h1>Pump HQ Scanner privacy policy</h1>
-  <p class="muted">Last updated: October 13, 2026</p>
+  <p class="muted">Last updated: October 15, 2026</p>
   <p>Pump HQ Scanner is a browser extension that adds labels, a coin panel and launch alerts to
      axiom.trade, pump.fun and Terminal (terminal.pump.fun, trade.padre.gg). This policy explains what it stores and what it sends.</p>
 
@@ -49,6 +49,14 @@
           can enforce the daily limit, checks the key with Whop (where you bought it), remembers each coin's
           result for a few minutes so repeat requests are fast, and counts the install IDs (below) that use
           a key each day so one key can't be shared by many people. Your IP address is only used to rate-limit requests and, scrambled and kept only in memory, to let an update or reinstall on the same network take over your key within a minute. It is never saved.</li>
+      <li><b>If your Scanner key is on Pro or Pro+:</b> when you open the Insiders tab on a coin (or stay on a coin for 3 seconds
+          with the tab open), the extension sends the Pump HQ scanner server that coin's address, your Scanner key and the
+          install ID described below. While that coin's page stays open it keeps asking about the same coin (every few
+          seconds at first, less often later, for up to 2 hours, never while the tab is hidden) so it can alert you when an
+          insider sells. The server reads the coin's launch wallets from public Solana data and shares one result per coin
+          with everyone looking at it. It counts which coins each key opens per day, in memory, to enforce the daily
+          limit, and uses the install ID the same way as for the Pulse colours, so one key can't run on several computers
+          at once. Nothing about your own wallet is sent or read.</li>
       <li><b>An anonymous install count:</b> once a day, the extension sends the Pump HQ scanner server a random
           ID made at random on your computer (it isn't made from anything about you or your wallet), its version
           number, and whether a Scanner key is active. That's all it sends. The server only keeps a short
