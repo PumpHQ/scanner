@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scanner Pro · Pump HQ</title>
+<meta name="description" content="Scanner Pro: see who bought a coin's launch, how much they still hold, and get an alert the second they sell.">
+<meta property="og:title" content="Pump HQ Scanner Pro">
+<meta property="og:description" content="See who bought the launch, and get an alert the second they sell.">
+<meta property="og:image" content="https://pumphq.github.io/scanner/assets/pro_insiders.webp">
+<meta property="og:url" content="https://pumphq.github.io/scanner/pro/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d0718">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0714; --bg2: #140b24; --card: rgba(24, 15, 42, .72); --line: rgba(160, 120, 255, .16);
+    --text: #f1eefb; --muted: #a79fc0; --neon: #7cff4f; --neon-dim: rgba(124, 255, 79, .14);
+    --red: #ff5d6c; --orange: #ff9a4d; --amber: #ffcf5a; --green: #2fd18b; --pink: #ff4fa3; --purple: #b18cff; --blue: #5cc8ff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; color: var(--text); font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(1100px 600px at 75% -10%, rgba(123, 63, 214, .38), transparent 60%),
+      radial-gradient(900px 500px at -10% 30%, rgba(124, 255, 79, .07), transparent 60%),
+      linear-gradient(180deg, var(--bg2) 0%, var(--bg) 45%, #07050d 100%);
+    background-attachment: fixed; min-height: 100vh; overflow-x: hidden;
+  }
+  /* a still starfield, like the mascot's sky (no blinking) */
+  .stars, .stars::after {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 8% 12%, #ffd9a8 50%, transparent 51%),
+      radial-gradient(1px 1px at 22% 38%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 37% 8%, #ffcf8a 50%, transparent 51%),
+      radial-gradient(1px 1px at 51% 62%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 66% 24%, #ffd9a8 50%, transparent 51%),
+      radial-gradient(1px 1px at 81% 48%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 93% 14%, #ffcf8a 50%, transparent 51%),
+      radial-gradient(1px 1px at 12% 78%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 44% 88%, #ffd9a8 50%, transparent 51%),
+      radial-gradient(1px 1px at 72% 82%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 88% 70%, #ffcf8a 50%, transparent 51%),
+      radial-gradient(1px 1px at 30% 56%, #fff 50%, transparent 51%);
+    opacity: .55;
+  }
+  .stars::after { content: ""; transform: translate(47%, 31%) scale(1.3); opacity: .35; }
+  .wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  a { color: var(--blue); }
+
+  /* nav */
+  nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .brand img { width: 40px; height: 40px; border-radius: 10px; box-shadow: 0 0 0 1px var(--line), 0 0 18px rgba(124, 255, 79, .25); }
+  .brand span { font: 12px/1.3 "Press Start 2P", monospace; letter-spacing: .5px; }
+  .brand span b { color: var(--neon); font-weight: 400; }
+  .links { display: flex; align-items: center; gap: 22px; }
+  .links a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 15px; }
+  .links a:hover { color: var(--text); }
+  @media (max-width: 760px) { .links a.hide-sm { display: none; } }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding: 48px 0 72px; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--neon);
+          background: var(--neon-dim); border: 1px solid rgba(124, 255, 79, .3); padding: 6px 12px; border-radius: 999px; }
+  .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 10px var(--neon); }
+  h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -1.5px; margin: 18px 0 18px; font-weight: 800; }
+  h1 .glow { color: var(--neon); text-shadow: 0 0 28px rgba(124, 255, 79, .45); }
+  .lead { font-size: 19px; color: #cfc8e6; max-width: 560px; margin: 0 0 28px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 12px; font-weight: 700;
+         text-decoration: none; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+  .btn.primary { background: var(--neon); color: #0b1a05; box-shadow: 0 0 0 1px rgba(124, 255, 79, .6), 0 8px 30px rgba(124, 255, 79, .28); }
+  .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--neon), 0 12px 38px rgba(124, 255, 79, .4); }
+  .btn.ghost { color: var(--text); background: rgba(255, 255, 255, .04); border: 1px solid var(--line); }
+  .btn.ghost:hover { border-color: rgba(177, 140, 255, .5); background: rgba(177, 140, 255, .08); }
+  .fine { color: var(--muted); font-size: 14px; margin-top: 16px; }
+  .fine a { color: var(--muted); }
+  .hero-art { display: flex; justify-content: center; }
+  .mascot { position: relative; width: min(380px, 80vw); aspect-ratio: 1; border-radius: 28px; overflow: hidden;
+            border: 1px solid rgba(124, 255, 79, .35);
+            box-shadow: 0 0 0 6px rgba(124, 255, 79, .05), 0 0 60px rgba(124, 255, 79, .22), 0 30px 80px rgba(0, 0, 0, .55);
+            animation: float 7s ease-in-out infinite; }
+  .mascot img { width: 100%; height: 100%; display: block; image-rendering: auto; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @media (prefers-reduced-motion: reduce) { .mascot { animation: none; } html { scroll-behavior: auto; } }
+  @media (max-width: 880px) { .hero { grid-template-columns: 1fr; padding-top: 24px; } .hero-art { order: -1; } .mascot { width: min(260px, 70vw); } }
+
+  /* sections */
+  section { padding: 56px 0; }
+  .kicker { font: 11px/1.4 "Press Start 2P", monospace; color: var(--neon); letter-spacing: .5px; margin-bottom: 14px; }
+  h2 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -.8px; margin: 0 0 12px; line-height: 1.15; }
+  .sub { color: var(--muted); font-size: 17px; max-width: 640px; margin: 0 0 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; backdrop-filter: blur(6px);
+          transition: transform .2s ease, border-color .2s ease; }
+  .card:hover { transform: translateY(-3px); border-color: rgba(177, 140, 255, .35); }
+  .card h3 { margin: 12px 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; padding: 5px 10px;
+         border-radius: 8px; border: 1px solid currentColor; background: rgba(0, 0, 0, .25); }
+  .tag i { width: 9px; height: 9px; border-radius: 3px; background: currentColor; }
+  .t-red { color: var(--red); } .t-amber { color: var(--amber); } .t-orange { color: var(--orange); }
+  .t-green { color: var(--green); } .t-pink { color: var(--pink); } .t-purple { color: var(--purple); }
+  .keybox { margin-top: 40px; border-radius: 24px; padding: 28px; border: 1px solid rgba(124, 255, 79, .28);
+            background: linear-gradient(180deg, rgba(124, 255, 79, .07), rgba(24, 15, 42, .6)); }
+  .keybox h3.head { margin: 0 0 4px; font-size: 22px; }
+  .keybox .sub { margin-bottom: 22px; font-size: 16px; }
+  .icon { font-size: 26px; line-height: 1; }
+
+  /* screenshots */
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .shot { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  .shot img { width: 100%; display: block; aspect-ratio: 1280 / 800; object-fit: cover; }
+  .shot figcaption { padding: 12px 16px 16px; color: var(--muted); font-size: 14px; }
+  .shot figcaption b { color: var(--text); display: block; font-size: 15px; margin-bottom: 2px; }
+  @media (max-width: 900px) { .shots { grid-template-columns: 1fr; } }
+
+  /* install */
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; counter-reset: s; }
+  .steps li { counter-increment: s; position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+              padding: 18px 18px 18px 64px; color: #d9d3ee; }
+  .steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 32px; height: 32px; border-radius: 10px;
+                      display: grid; place-items: center; font: 12px "Press Start 2P", monospace; color: #0b1a05; background: var(--neon);
+                      box-shadow: 0 0 16px rgba(124, 255, 79, .35); }
+  .steps b { color: var(--text); }
+  code { background: rgba(255, 255, 255, .06); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 14px;
+         font-family: ui-monospace, Consolas, monospace; color: #e9e4ff; }
+  .note { margin-top: 18px; color: var(--muted); font-size: 15px; }
+
+  /* faq */
+  .faq { display: grid; gap: 12px; max-width: 820px; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; }
+  details[open] { border-color: rgba(177, 140, 255, .35); }
+  summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--neon); font-weight: 800; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--muted); margin: 10px 0 0; }
+
+  /* closing band + footer */
+  .band { text-align: center; padding: 48px 24px; border-radius: 28px; margin: 24px 0 8px; border: 1px solid rgba(124, 255, 79, .25);
+          background: radial-gradient(600px 200px at 50% 0%, rgba(124, 255, 79, .12), transparent 70%), var(--card); }
+  .band h2 { margin-bottom: 8px; }
+  .band .cta { justify-content: center; margin-top: 22px; }
+  footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 32px 0 48px;
+           color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  footer .brand img { width: 28px; height: 28px; border-radius: 8px; }
+
+  /* pro page */
+  html { background: #07050d; }
+  .hero.pro { grid-template-columns: 1fr 1.05fr; }
+  .shot-hero { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 207, 90, .35);
+               box-shadow: 0 0 60px rgba(255, 207, 90, .12), 0 30px 80px rgba(0, 0, 0, .55); }
+  .shot-hero img { width: 100%; display: block; }
+  .pill.gold { color: var(--amber); background: rgba(255, 207, 90, .12); border-color: rgba(255, 207, 90, .35); }
+  .pill.gold i { background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+  h1 .sell { color: var(--red); text-shadow: 0 0 28px rgba(255, 93, 108, .45); }
+  .btn.gold { background: var(--amber); color: #1f1400; box-shadow: 0 0 0 1px rgba(255, 207, 90, .6), 0 8px 30px rgba(255, 207, 90, .25); }
+  .btn.gold:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px var(--amber), 0 12px 38px rgba(255, 207, 90, .38); }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; }
+  .plan.best { border-color: rgba(255, 207, 90, .55); box-shadow: 0 0 0 1px rgba(255, 207, 90, .25), 0 0 50px rgba(255, 207, 90, .1); }
+  .plan h3 { margin: 0 0 4px; font-size: 20px; }
+  .plan .price { font-size: 34px; font-weight: 800; letter-spacing: -1px; margin: 6px 0 2px; }
+  .plan .price small { font-size: 15px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+  .plan ul { list-style: none; padding: 0; margin: 14px 0 22px; color: #d9d3ee; font-size: 15px; flex: 1; }
+  .plan li { padding: 5px 0 5px 26px; position: relative; }
+  .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--neon); font-weight: 800; }
+  .plan .btn { justify-content: center; }
+  .badge { display: inline-block; font-size: 12px; font-weight: 800; color: #1f1400; background: var(--amber); border-radius: 999px;
+           padding: 3px 10px; margin-bottom: 10px; align-self: flex-start; }
+  @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } .hero.pro { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<div class="wrap">
+
+  <nav>
+    <a class="brand" href="../"><img src="../assets/mascot.png" alt=""><span>PUMP <b>HQ</b></span></a>
+    <div class="links">
+      <a class="hide-sm" href="#what">What Pro adds</a>
+      <a class="hide-sm" href="#plans">Plans</a>
+      <a class="hide-sm" href="../#install">Install</a>
+      <a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI" style="padding:9px 14px;font-size:14px">Get Pro</a>
+    </div>
+  </nav>
+
+  <header class="hero pro" id="top">
+    <div>
+      <span class="pill gold"><i></i> NEW · Scanner Pro (beta)</span>
+      <h1>See when the insiders <span class="sell">sell.</span></h1>
+      <p class="lead">Scanner Pro shows who bought a coin at launch (the bundle, the snipers and the dev), how much they still
+         hold, and pops an alert the second they start selling.</p>
+      <div class="cta">
+        <a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI">Get Scanner Pro · $24.99/week</a>
+        <a class="btn ghost" href="#plans">Compare plans</a>
+      </div>
+      <p class="fine">Everything in the Scanner, plus the insider tracker · Cancel anytime · For Chrome or Brave on a computer</p>
+    </div>
+    <div class="shot-hero"><picture><source media="(max-width: 600px)" srcset="../assets/pro_panel.webp"><img src="../assets/pro_insiders.webp" alt="Scanner Pro's Insiders tab: a live alert that the bundle just sold, and how much the insiders still hold"></picture></div>
+  </header>
+
+  <section id="what">
+    <div class="kicker">WHAT PRO ADDS</div>
+    <h2>The Insiders tab</h2>
+    <p class="sub">Open any coin and Pro follows the wallets that bought its launch. It shows what happened on-chain. It's not a buy or sell signal.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">⚠️</div><h3>Live sell alerts</h3><p>The moment a launch insider sells, an alert pops up on the coin's page. It checks every second for the first 10 minutes.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Who bought the launch</h3><p>The same-block bundle, the biggest first-30-second buyers and the dev: what they bought, what they still hold, and where they sold.</p></div>
+      <div class="card"><div class="icon">🚨</div><h3>One-line status</h3><p>Still loaded, partly out, out, or selling right now, at the top of the tab.</p></div>
+      <div class="card"><div class="icon">📉</div><h3>If insiders dump now</h3><p>Where the price would land if they sold what they hold right now, from the pool's own math.</p></div>
+      <div class="card"><div class="icon">💧</div><h3>Liquidity warnings</h3><p>A warning when a graduated coin's liquidity was just pulled or can still be pulled, and who holds it.</p></div>
+      <div class="card"><div class="icon">🤖</div><h3>Bot-farm warnings</h3><p>Many wallets with one operator, buying the same coin.</p></div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="kicker">PLANS</div>
+    <h2>Pick your plan</h2>
+    <p class="sub">Weekly, cancel anytime. Your key shows up in Whop right after you pay (Pump HQ Scanner → Software).</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Scanner</h3>
+        <div class="price">$14.99<small> /week</small></div>
+        <ul>
+          <li>Every coin labeled by its dev's record</li>
+          <li>Copycats, OGs, LARPs, hot narratives</li>
+          <li>50 trap checks a day</li>
+          <li>Dev launch alerts</li>
+        </ul>
+        <a class="btn ghost" href="https://whop.com/checkout/plan_qbBLfRcK1e0cu">Get Scanner</a>
+      </div>
+      <div class="plan best">
+        <span class="badge">NEW</span>
+        <h3>Scanner Pro</h3>
+        <div class="price">$24.99<small> /week</small></div>
+        <ul>
+          <li>Everything in the Scanner</li>
+          <li>The Insiders tab + live sell alerts</li>
+          <li>Liquidity and bot-farm warnings</li>
+          <li>300 trap checks a day</li>
+        </ul>
+        <a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI">Get Scanner Pro</a>
+      </div>
+      <div class="plan">
+        <h3>Scanner Pro+</h3>
+        <div class="price">$39.99<small> /week</small></div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>1,000 trap checks a day</li>
+        </ul>
+        <a class="btn ghost" href="https://whop.com/checkout/plan_6OPdDxm8NROY5">Get Pro+</a>
+      </div>
+    </div>
+    <p class="note">Prices before tax: Whop adds sales tax where it applies. Then <a href="../#install">install the Scanner</a> (2 minutes) and paste your key.</p>
+  </section>
+
+  <section id="faq">
+    <div class="kicker">QUESTIONS</div>
+    <h2>Good to know</h2>
+    <div class="faq">
+      <details><summary>Is it safe?</summary><p>It's read-only. It never asks for your wallet, your seed phrase or a signature, and it never trades. The <a href="../privacy.html">privacy policy</a> lists exactly what it sends.</p></details>
+      <details><summary>Does it work on my phone?</summary><p>No. It runs in Chrome or Brave on a computer, inside Axiom and Terminal.</p></details>
+      <details><summary>Is an alert a signal to sell?</summary><p>No. It tells you what the launch wallets just did on-chain. What you do with that is up to you. Nothing here is financial advice.</p></details>
+    </div>
+  </section>
+
+  <div class="band">
+    <h2>See it before it happens to you.</h2>
+    <div class="cta"><a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI">Get Scanner Pro · $24.99/week</a></div>
+  </div>
+
+  <footer>
+    <a class="brand" href="../"><img src="../assets/mascot.png" alt=""><span>PUMP <b>HQ</b></span></a>
+    <div>Not made by or connected to Axiom, Terminal or pump.fun. Nothing here is financial advice.</div>
+    <div><a href="../privacy.html">Privacy</a> · © 2026 Pump HQ</div>
+  </footer>
+</div>
+</body>
+</html>
