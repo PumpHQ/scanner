@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scanner Pro · Pump HQ</title>
-<meta name="description" content="Scanner Pro: see who bought a coin's launch, how much they still hold, and get an alert the second they sell.">
-<meta property="og:title" content="Pump HQ Scanner Pro">
-<meta property="og:description" content="See who bought the launch, and get an alert the second they sell.">
+<title>Pump HQ Scanner · Plans &amp; Pro</title>
+<meta name="description" content="Pump HQ Scanner labels every new coin on Axiom and Terminal by its dev's record and checks it for traps. Scanner Pro adds an alert the second the launch insiders sell.">
+<meta property="og:title" content="Pump HQ Scanner · Plans &amp; Pro">
+<meta property="og:description" content="Spot the traps before you buy. See when the insiders sell.">
 <meta property="og:image" content="https://pumphq.github.io/scanner/assets/pro_insiders.webp">
 <meta property="og:url" content="https://pumphq.github.io/scanner/pro/">
 <meta name="twitter:card" content="summary_large_image">
@@ -176,6 +176,10 @@
   .plan .btn { justify-content: center; }
   .badge { display: inline-block; font-size: 12px; font-weight: 800; color: #1f1400; background: var(--amber); border-radius: 999px;
            padding: 3px 10px; margin-bottom: 10px; align-self: flex-start; }
+  .prokey { margin-top: 0; border-color: rgba(255, 207, 90, .35);
+            background: linear-gradient(180deg, rgba(255, 207, 90, .07), rgba(24, 15, 42, .6)); }
+  .prokey .kicker { color: var(--amber); }
+  .deep { margin-top: 28px; }
   @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } .hero.pro { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -186,55 +190,88 @@
   <nav>
     <a class="brand" href="../"><img src="../assets/mascot.png" alt=""><span>PUMP <b>HQ</b></span></a>
     <div class="links">
-      <a class="hide-sm" href="#what">What Pro adds</a>
-      <a class="hide-sm" href="#plans">Plans</a>
-      <a class="hide-sm" href="../#install">Install</a>
-      <a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI" style="padding:9px 14px;font-size:14px">Get Pro</a>
+      <a class="hide-sm" href="#scanner">What it does</a>
+      <a class="hide-sm" href="#pro">Pro</a>
+      <a class="hide-sm" href="#start">Get started</a>
+      <a class="btn gold" href="#plans" style="padding:9px 14px;font-size:14px">Plans</a>
     </div>
   </nav>
 
   <header class="hero pro" id="top">
     <div>
-      <span class="pill gold"><i></i> NEW · Scanner Pro (beta)</span>
-      <h1>See when the insiders <span class="sell">sell.</span></h1>
-      <p class="lead">Scanner Pro shows who bought a coin at launch (the bundle, the snipers and the dev), how much they still
-         hold, and pops an alert the second they start selling.</p>
+      <span class="pill gold"><i></i> Pump HQ Scanner · for Axiom &amp; Terminal</span>
+      <h1>Spot the traps before you buy. See when insiders <span class="sell">sell.</span></h1>
+      <p class="lead">Pump HQ Scanner is a browser extension for Axiom and Terminal. It labels every new coin by its dev's
+         record and checks it for snipers, bundles and other traps in seconds. <b>Scanner Pro</b> adds the insider tracker:
+         who bought the launch, what they still hold, and an alert the second they sell.</p>
       <div class="cta">
         <a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI">Get Scanner Pro · $24.99/week</a>
-        <a class="btn ghost" href="#plans">Compare plans</a>
+        <a class="btn ghost" href="#plans">Plans from $14.99/week</a>
       </div>
-      <p class="fine">Everything in the Scanner, plus the insider tracker · Cancel anytime · For Chrome or Brave on a computer</p>
+      <p class="fine">Read-only: it never touches your wallet · Chrome or Brave on a computer · Cancel anytime</p>
     </div>
     <div class="shot-hero"><picture><source media="(max-width: 600px)" srcset="../assets/pro_panel.webp"><img src="../assets/pro_insiders.webp" alt="Scanner Pro's Insiders tab: a live alert that the bundle just sold, and how much the insiders still hold"></picture></div>
   </header>
 
-  <section id="what">
-    <div class="kicker">WHAT PRO ADDS</div>
-    <h2>The Insiders tab</h2>
-    <p class="sub">Open any coin and Pro follows the wallets that bought its launch. It shows what happened on-chain. It's not a buy or sell signal.</p>
+  <section id="scanner">
+    <div class="kicker">WHAT THE SCANNER DOES · EVERY PLAN</div>
+    <h2>Every coin on Pulse and Trenches, labeled</h2>
+    <p class="sub">Colors and tags show up right on Axiom's and Terminal's own rows, the moment a coin appears. No new tab, no
+       copy-pasting contract addresses.</p>
     <div class="grid">
-      <div class="card"><div class="icon">⚠️</div><h3>Live sell alerts</h3><p>The moment a launch insider sells, an alert pops up on the coin's page. It checks every second for the first 10 minutes.</p></div>
-      <div class="card"><div class="icon">🎯</div><h3>Who bought the launch</h3><p>The same-block bundle, the biggest first-30-second buyers and the dev: what they bought, what they still hold, and where they sold.</p></div>
-      <div class="card"><div class="icon">🚨</div><h3>One-line status</h3><p>Still loaded, partly out, out, or selling right now, at the top of the tab.</p></div>
-      <div class="card"><div class="icon">📉</div><h3>If insiders dump now</h3><p>Where the price would land if they sold what they hold right now, from the pool's own math.</p></div>
-      <div class="card"><div class="icon">💧</div><h3>Liquidity warnings</h3><p>A warning when a graduated coin's liquidity was just pulled or can still be pulled, and who holds it.</p></div>
-      <div class="card"><div class="icon">🤖</div><h3>Bot-farm warnings</h3><p>Many wallets with one operator, buying the same coin.</p></div>
+      <div class="card"><span class="tag t-red"><i></i>Rug dev</span><h3>Serial ruggers</h3><p>Devs whose coins mostly died get flagged, with the count.</p></div>
+      <div class="card"><span class="tag t-amber"><i></i>Farming</span><h3>Farming devs</h3><p>Launching dud after dud today? You'll see it before you ape.</p></div>
+      <div class="card"><span class="tag t-orange"><i></i>Copycat</span><h3>Copycats</h3><p>Copies of older coins, and whether they kept their own X or stole the original's.</p></div>
+      <div class="card"><span class="tag t-green"><i></i>OG</span><h3>The original</h3><p>The first coin with the ticker, and how many copies came after it.</p></div>
+      <div class="card"><span class="tag t-pink"><i></i>Hot</span><h3>Hot narratives</h3><p>Words lots of different devs are launching right now, and the new coin winning each one in pink.</p></div>
+      <div class="card"><span class="tag t-purple"><i></i>LARP</span><h3>LARPs</h3><p>Coins posing as a celeb's "official" coin, or using a famous account's X.</p></div>
+    </div>
+    <div class="deep">
+      <div class="grid">
+        <div class="card"><div class="icon">🛡</div><h3>Trap checks</h3><p>Snipers, bundles, whale flippers: RED / YELLOW / GREEN in seconds, right from the row.</p></div>
+        <div class="card"><div class="icon">🔥</div><h3>Really good devs</h3><p>Devs with real pumps in the last 30 hours who aren't farming, tracked for you and refreshed every 15 minutes. A record of recent pumps, not a promise about the next coin.</p></div>
+        <div class="card"><div class="icon">🔔</div><h3>Launch alerts</h3><p>A pop-up the moment a dev you track launches a new coin.</p></div>
+        <div class="card"><div class="icon">⏱</div><h3>60-second check</h3><p>Where their new coin's price sits one minute in.</p></div>
+      </div>
+    </div>
+    <div style="margin-top:28px">
+      <div class="shots">
+      <figure class="shot"><img src="../assets/pulse.webp" alt="Pulse rows labeled by dev record" loading="lazy"><figcaption><b>Pulse, labeled</b>Rug devs, copies, OGs and dev history on every row.</figcaption></figure>
+      <figure class="shot"><img src="../assets/trapcheck.webp" alt="A trap check result" loading="lazy"><figcaption><b>Trap checks</b>The verdict and the reasons behind it.</figcaption></figure>
+      <figure class="shot"><img src="../assets/popup.webp" alt="The Scanner popup" loading="lazy"><figcaption><b>Your settings</b>Key status, daily checks and every toggle.</figcaption></figure>
+    </div>
+    </div>
+  </section>
+
+  <section id="pro">
+    <div class="keybox prokey">
+      <div class="kicker">SCANNER PRO ADDS</div>
+      <h3 class="head">The Insiders tab: see when they sell</h3>
+      <p class="sub">Open any coin and Pro follows the wallets that bought its launch. It shows what happened on-chain. It's not a buy or sell signal.</p>
+      <div class="grid">
+        <div class="card"><div class="icon">⚠️</div><h3>Live sell alerts</h3><p>The moment a launch insider sells, an alert pops up on the coin's page. It checks every second for the first 10 minutes.</p></div>
+        <div class="card"><div class="icon">🎯</div><h3>Who bought the launch</h3><p>The same-block bundle, the biggest first-30-second buyers and the dev: what they bought, what they still hold, and where they sold.</p></div>
+        <div class="card"><div class="icon">🚨</div><h3>One-line status</h3><p>Still loaded, partly out, out, or selling right now, at the top of the tab.</p></div>
+        <div class="card"><div class="icon">📉</div><h3>If insiders dump now</h3><p>Where the price would land if they sold what they hold right now, from the pool's own math.</p></div>
+        <div class="card"><div class="icon">💧</div><h3>Liquidity warnings</h3><p>A warning when a graduated coin's liquidity was just pulled or can still be pulled, and who holds it.</p></div>
+        <div class="card"><div class="icon">🤖</div><h3>Bot-farm warnings</h3><p>Many wallets with one operator, buying the same coin.</p></div>
+      </div>
     </div>
   </section>
 
   <section id="plans">
     <div class="kicker">PLANS</div>
     <h2>Pick your plan</h2>
-    <p class="sub">Weekly, cancel anytime. Your key shows up in Whop right after you pay (Pump HQ Scanner → Software).</p>
+    <p class="sub">Weekly, cancel anytime. Every plan has everything above the Pro box; Pro and Pro+ add the Insiders tab.</p>
     <div class="plans">
       <div class="plan">
         <h3>Scanner</h3>
         <div class="price">$14.99<small> /week</small></div>
         <ul>
           <li>Every coin labeled by its dev's record</li>
-          <li>Copycats, OGs, LARPs, hot narratives</li>
+          <li>Rug devs, copycats, OGs, LARPs, hot narratives</li>
           <li>50 trap checks a day</li>
-          <li>Dev launch alerts</li>
+          <li>Really good devs + launch alerts</li>
         </ul>
         <a class="btn ghost" href="https://whop.com/checkout/plan_qbBLfRcK1e0cu">Get Scanner</a>
       </div>
@@ -260,7 +297,17 @@
         <a class="btn ghost" href="https://whop.com/checkout/plan_6OPdDxm8NROY5">Get Pro+</a>
       </div>
     </div>
-    <p class="note">Prices before tax: Whop adds sales tax where it applies. Then <a href="../#install">install the Scanner</a> (2 minutes) and paste your key.</p>
+    <p class="note">Prices before tax: Whop adds sales tax where it applies.</p>
+  </section>
+
+  <section id="start">
+    <div class="kicker">GET STARTED</div>
+    <h2>Running in 2 minutes</h2>
+    <ol class="steps">
+      <li><b>Pick a plan</b> above. Your key shows up in Whop right after you pay (Whop → Pump HQ Scanner → Software).</li>
+      <li><b>Install the Scanner</b> in Chrome or Brave on your computer with the <a href="../#install">2-minute guide</a>.</li>
+      <li><b>Paste your key</b> into the Scanner's popup and hit Activate, then refresh Axiom's Pulse. Every coin gets labeled.</li>
+    </ol>
   </section>
 
   <section id="faq">
@@ -269,13 +316,14 @@
     <div class="faq">
       <details><summary>Is it safe?</summary><p>It's read-only. It never asks for your wallet, your seed phrase or a signature, and it never trades. The <a href="../privacy.html">privacy policy</a> lists exactly what it sends.</p></details>
       <details><summary>Does it work on my phone?</summary><p>No. It runs in Chrome or Brave on a computer, inside Axiom and Terminal.</p></details>
-      <details><summary>Is an alert a signal to sell?</summary><p>No. It tells you what the launch wallets just did on-chain. What you do with that is up to you. Nothing here is financial advice.</p></details>
+      <details><summary>Does a GREEN trap check mean it's safe to buy?</summary><p>No. It means no obvious traps were found. Most pump.fun coins still die, so size small and never trade money you can't lose.</p></details>
+      <details><summary>Is a Pro alert a signal to sell?</summary><p>No. It tells you what the launch wallets just did on-chain. What you do with that is up to you. Nothing here is financial advice.</p></details>
     </div>
   </section>
 
   <div class="band">
     <h2>See it before it happens to you.</h2>
-    <div class="cta"><a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI">Get Scanner Pro · $24.99/week</a></div>
+    <div class="cta"><a class="btn gold" href="https://whop.com/checkout/plan_E1UMLUpeaDhEI">Get Scanner Pro · $24.99/week</a><a class="btn ghost" href="https://whop.com/checkout/plan_qbBLfRcK1e0cu">Get Scanner · $14.99/week</a></div>
   </div>
 
   <footer>
