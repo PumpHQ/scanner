@@ -226,7 +226,7 @@
   <section id="install">
     <div class="kicker">INSTALL</div>
     <h2>Up and running in 2 minutes</h2>
-    <p class="sub">It installs from a file, so it's a couple of extra clicks compared to the Chrome Web Store.</p>
+    <p class="sub">For now it installs from a file, so it's a couple of extra clicks. A one-click Chrome Web Store version is in Google's review and coming soon.</p>
     <div class="cta" style="margin: -16px 0 28px;"><a class="btn ghost" href="setup.mp4" target="_blank" rel="noopener">▶ Watch the 1-minute setup video</a> <a class="btn ghost" href="https://www.tiktok.com/@pumppatroller/video/7692301178171837726" target="_blank" rel="noopener">on TikTok</a></div>
     <ol class="steps">
       <li><b>Download</b> the zip with the button above.</li>
@@ -244,7 +244,7 @@
     <h2>Good to know</h2>
     <div class="faq">
       <details><summary>Is it safe?</summary><p>It's read-only. It never reads your wallet, never signs anything and never trades. Since version 2.0.0 the extension holds no logic of its own: it sends the coin addresses on your screen to the Pump HQ server and draws the colours that come back. The <a href="privacy.html">privacy policy</a> lists exactly what it sends and where.</p></details>
-      <details><summary>Why do I need Developer mode?</summary><p>The Scanner installs from a file instead of the Chrome Web Store, and browsers only allow that with Developer mode on. Your browser may remind you about it now and then. Leave it on, or the extension turns off.</p></details>
+      <details><summary>Why do I need Developer mode?</summary><p>The Scanner installs from a file instead of the Chrome Web Store, and browsers only allow that with Developer mode on. Your browser may remind you about it now and then. Leave it on, or the extension turns off. The Chrome Web Store version is in Google's review and coming soon, and that one won't need Developer mode.</p></details>
       <details><summary>How do I check the file I downloaded is the real one?</summary><p>Every release has one fingerprint. Right-click the zip in PowerShell with <code>Get-FileHash pumphq-scanner.zip</code> (Mac/Linux: <code>shasum -a 256 pumphq-scanner.zip</code>) and compare it with the SHA-256 shown above the download button. If it doesn't match, you didn't get it from here: delete it.</p></details>
       <details><summary>What does it send, exactly?</summary><p>Three things, all to the Pump HQ server: your Scanner key, the addresses of the coins on your Pulse or Trenches screen (that's how it gets the colours back), and a random install ID made on your computer so one key can't be shared. Prices and candles for the coin panel come from DexScreener and GeckoTerminal. Nothing else leaves your browser: no wallet, no balances, no browsing. The <a href="privacy.html">privacy policy</a> has the full list.</p></details>
       <details><summary>How do updates work?</summary><p>The popup tells you when there's a new version. Download it again, extract it over the same folder, and hit the reload arrow on the extensions page. Your settings and key stay put.</p></details>
