@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earn 30% · Pump HQ Scanner affiliates</title>
+<meta name="description" content="Share Pump HQ Scanner and earn 30% on every purchase through your link. No application, no follower minimum. Whop tracks it and pays you.">
+<meta property="og:title" content="Earn 30% sharing Pump HQ Scanner">
+<meta property="og:description" content="No application, no follower minimum. Make your link in 30 seconds.">
+<meta property="og:image" content="https://pumphq.github.io/scanner/assets/og.png">
+<meta property="og:url" content="https://pumphq.github.io/scanner/earn/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d0718">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  /* 2026-10-28 (Von: "maybe we should have a like Become a pump hq scanner affiliate link people can sign up for ... in
+     the linktree"). Whop affiliates are on for the Scanner: 30% for anyone, no application (globalAffiliateStatus
+     enabled, affiliateApplicationRequired false). A Whop affiliate link carries the affiliate's Whop username (?a=). */
+  :root {
+    --bg: #0b0714; --bg2: #140b24; --card: rgba(24, 15, 42, .72); --line: rgba(160, 120, 255, .16);
+    --text: #f1eefb; --muted: #a79fc0; --neon: #7cff4f; --neon-dim: rgba(124, 255, 79, .14);
+    --red: #ff5d6c; --amber: #ffcf5a; --blue: #5cc8ff;
+  }
+  * { box-sizing: border-box; }
+  html { background: #07050d; }
+  body {
+    margin: 0; color: var(--text); font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(1100px 600px at 75% -10%, rgba(123, 63, 214, .38), transparent 60%),
+      radial-gradient(900px 500px at -10% 30%, rgba(124, 255, 79, .07), transparent 60%),
+      linear-gradient(180deg, var(--bg2) 0%, var(--bg) 45%, #07050d 100%);
+    background-attachment: fixed; min-height: 100vh;
+  }
+  .wrap { max-width: 660px; margin: 0 auto; padding: 0 18px 60px; }
+  a { color: var(--blue); }
+  nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+  .brand img { width: 36px; height: 36px; border-radius: 9px; box-shadow: 0 0 0 1px var(--line), 0 0 16px rgba(124, 255, 79, .25); }
+  .brand span { font: 11px/1.3 "Press Start 2P", monospace; letter-spacing: .5px; }
+  nav a.home { color: var(--muted); font-size: 14px; text-decoration: none; }
+  h1 { font-size: clamp(30px, 7vw, 44px); line-height: 1.12; margin: 18px 0 10px; letter-spacing: -.5px; }
+  h1 b { color: var(--neon); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 26px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin: 0 0 18px; }
+  h2 { font-size: 19px; margin: 0 0 12px; }
+  ol { margin: 0; padding-left: 22px; }
+  ol li { margin: 0 0 14px; }
+  ol li:last-child { margin-bottom: 0; }
+  label { display: block; color: var(--muted); font-size: 14px; margin: 8px 0 6px; }
+  .row { display: flex; gap: 8px; }
+  input {
+    flex: 1; min-width: 0; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line);
+    background: rgba(8, 5, 16, .8); color: var(--text); font: 16px Inter, system-ui, sans-serif;
+  }
+  input:focus { outline: 2px solid var(--neon-dim); border-color: var(--neon); }
+  button {
+    padding: 12px 16px; border-radius: 10px; border: 0; background: var(--neon); color: #0b0714; font: 700 15px Inter, system-ui, sans-serif;
+    cursor: pointer; white-space: nowrap;
+  }
+  button:disabled { opacity: .45; cursor: default; }
+  .link {
+    margin-top: 10px; padding: 12px 14px; border-radius: 10px; border: 1px dashed var(--line); background: rgba(124, 255, 79, .05);
+    font: 600 14px/1.45 ui-monospace, Consolas, monospace; word-break: break-all; color: var(--neon);
+  }
+  .link.empty { color: var(--muted); font-family: Inter, system-ui, sans-serif; font-weight: 500; }
+  .note { color: var(--muted); font-size: 14px; }
+  .ok { color: var(--neon); font-size: 14px; min-height: 20px; margin-top: 6px; }
+  ul { margin: 0; padding-left: 20px; }
+  ul li { margin: 0 0 8px; }
+  .say { border-left: 3px solid var(--neon); padding: 2px 0 2px 12px; margin: 10px 0; color: var(--text); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="../"><img src="../assets/favicon.png" alt=""><span>PUMP HQ</span></a>
+    <a class="home" href="../">What the Scanner does &rarr;</a>
+  </nav>
+
+  <h1>Earn <b>30%</b> sharing Pump HQ Scanner</h1>
+  <p class="lead">Post about it, people buy through your link, Whop pays you. No application, no follower minimum.</p>
+
+  <div class="card">
+    <h2>Get your link in 30 seconds</h2>
+    <ol>
+      <li><b>Make a free Whop account</b> at <a href="https://whop.com" target="_blank" rel="noopener">whop.com</a> (skip if you have one).</li>
+      <li>
+        <b>Type your Whop username</b> (the @name on your Whop profile):
+        <label for="u">Whop username</label>
+        <div class="row">
+          <input id="u" placeholder="yourname" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <button id="copy" disabled>Copy link</button>
+        </div>
+        <div id="link" class="link empty">Your link shows up here.</div>
+        <div id="ok" class="ok"></div>
+      </li>
+      <li><b>Share it</b>: your TikTok or X bio, your Discord or Telegram, your video captions.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>How you get paid</h2>
+    <p class="note" style="margin:0">Whop tracks every purchase made through your link and pays your 30% commission automatically,
+      30 days after each sale. You see it and cash out in your own Whop account. Already a Scanner customer? The same link works for you.</p>
+  </div>
+
+  <div class="card">
+    <h2>What it is (in one line)</h2>
+    <p class="say">A read-only rug checker for Axiom and pump.fun: it labels serial ruggers, copycats and bundled coins, and runs a trap check on any coin before you buy.</p>
+    <p class="note" style="margin:0">Show it working on real coins. That's what sells it.</p>
+  </div>
+
+  <div class="card">
+    <h2>A few rules</h2>
+    <ul>
+      <li>Say it's your affiliate link (on TikTok, switch on the content disclosure toggle when you post).</li>
+      <li>No promises: it's a checker, not a guarantee. Never say it makes money or stops every rug.</li>
+      <li>No spam DMs, no fake reviews, and don't pretend to be Pump HQ or Pump Patroller.</li>
+      <li>TikTok tip: call it a "tool" or "rug checker". Captions with "extension in my bio" have been flagged.</li>
+    </ul>
+  </div>
+
+  <footer>Pump HQ Scanner · <a href="../privacy.html">Privacy</a> · Not financial advice.</footer>
+</div>
+<script>
+  const STORE = "https://whop.com/t-1fcf/pump-hq-scanner";
+  const u = document.getElementById("u"), out = document.getElementById("link"), btn = document.getElementById("copy"),
+        ok = document.getElementById("ok");
+  const clean = s => String(s || "").trim().replace(/^@+/, "").replace(/^https?:\/\/(www\.)?whop\.com\/(@)?/i, "").replace(/\/.*$/, "");
+  function show() {
+    const name = clean(u.value);
+    const valid = /^[A-Za-z0-9_.-]{2,40}$/.test(name);
+    ok.textContent = "";
+    if (!name) { out.textContent = "Your link shows up here."; out.className = "link empty"; btn.disabled = true; return; }
+    if (!valid) { out.textContent = "Usernames are letters, numbers, dots, dashes and underscores."; out.className = "link empty"; btn.disabled = true; return; }
+    out.textContent = STORE + "?a=" + encodeURIComponent(name);
+    out.className = "link";
+    btn.disabled = false;
+  }
+  u.addEventListener("input", show);
+  btn.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(out.textContent); ok.textContent = "Copied. Put it in your bio."; }
+    catch (e) {
+      const r = document.createRange(); r.selectNodeContents(out);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      ok.textContent = "Selected: press Ctrl+C (or long-press and copy).";
+    }
+  });
+  show();
+</script>
+</body>
+</html>
